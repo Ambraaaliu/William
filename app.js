@@ -112,19 +112,19 @@ function speak(text) {
 /* ===================== 导航与目录 ===================== */
 var state = { tab: 'home', teacher: false, openLessons: {}, openPdf: {}, quiz: null, editing: null, statFilter: 'all' };
 var TABS = [
-  { id: 'home', label: '今日' },
-  { id: 'words', label: '单词本' },
-  { id: 'grammar', label: '语法' },
-  { id: 'pdf', label: '课件' },
-  { id: 'quiz', label: '练习' },
-  { id: 'stats', label: '统计' }
+  { id: 'home', label: '今日', ic: '🏠' },
+  { id: 'words', label: '单词本', ic: '📚' },
+  { id: 'grammar', label: '语法', ic: '✏️' },
+  { id: 'pdf', label: '课件', ic: '📄' },
+  { id: 'quiz', label: '练习', ic: '🎯' },
+  { id: 'stats', label: '统计', ic: '📊' }
 ];
 var TOC_TABS = { words: 1, grammar: 1, pdf: 1 };
 function renderNav() {
   var tabs = TABS.slice();
-  if (state.teacher) tabs.push({ id: 'teacher', label: '✏️ 教师' });
+  if (state.teacher) tabs.push({ id: 'teacher', label: '教师', ic: '🔧' });
   document.getElementById('nav').innerHTML = tabs.map(function (t) {
-    return '<button class="' + (state.tab === t.id ? 'active' : '') + '" onclick="go(\'' + t.id + '\')">' + t.label + '</button>';
+    return '<button class="' + (state.tab === t.id ? 'active' : '') + '" onclick="go(\'' + t.id + '\')"><span class="ic">' + t.ic + '</span><span class="lb">' + t.label + '</span></button>';
   }).join('');
 }
 function dispLessons() {
@@ -169,7 +169,7 @@ function tocLinks() {
     }).join('');
 }
 function spy() {
-  if (!TOC_TABS[state.tab] || window.innerWidth < 900) return;
+  if (!TOC_TABS[state.tab] || window.innerWidth < 1100) return;
   var curId = null;
   dispLessons().forEach(function (l) {
     var e = document.getElementById(state.tab + '-' + l.id);
@@ -184,7 +184,7 @@ window.addEventListener('scroll', spy, { passive: true });
 function buildToc() {
   var has = TOC_TABS[state.tab] && DATA.lessons.length > 1 && !state.quiz && state.editing === null;
   document.getElementById('toc').innerHTML = has ? '<div class="toc-title">📑 目录</div>' + tocLinks() : '';
-  document.getElementById('toc-fab').style.display = (has && window.innerWidth < 900) ? 'block' : 'none';
+  document.getElementById('toc-fab').style.display = (has && window.innerWidth < 1100) ? 'block' : 'none';
 }
 function toggleTocPanel(show) {
   if (show) document.getElementById('toc-panel-list').innerHTML = tocLinks();
@@ -213,57 +213,82 @@ function viewHome() {
     if (r.next === todayStr(1)) tomorrow++;
     else if (r.next > todayStr(1)) later[r.next] = (later[r.next] || 0) + 1;
   });
-  var laterKeys = Object.keys(later).sort().slice(0, 4);
+  var laterKeys = Object.keys(later).sort().slice(0, 3);
   // 今日完成度 = 今天已复习的单词 / (今天已复习 + 仍到期)。不依赖预存基准,永远自洽。
   var done = 0;
   all.forEach(function (w) { var r = srs[wkey(w)]; if (r && r.last === todayStr()) done++; });
   var planned = done + due.length;
   var pct = planned ? Math.min(100, Math.round(done / planned * 100)) : 100;
   var tStats = ls('efe_stats', {})[todayStr()] || { a: 0 };
-  var h = '<div class="card center">'
-    + '<div style="font-size:14px;color:var(--muted)">' + todayStr() + ' · ' + esc(DATA.config.book || '') + '</div>'
-    + '<div style="display:flex;align-items:center;justify-content:center;gap:14px;margin:8px 0">'
-    + ringSvg(pct)
-    + '<div style="text-align:left"><div style="font-size:17px;font-weight:700">' + esc(DATA.config.student || '') + ',欢迎回来!</div>'
-    + '<div style="font-size:13px;color:var(--muted)">今日完成度 ' + pct + '%' + (due.length ? ' · 还剩 ' + due.length + ' 个词' : ' · 全部完成 🎉') + (tStats.a ? '<br>今日已答 ' + tStats.a + ' 题' : '') + '</div></div></div>'
-    + '<div class="stat-row">'
-    + '<div class="stat"><div class="num">' + newCount + '</div><div class="lbl">📌 待学新词</div></div>'
-    + '<div class="stat"><div class="num">' + reviewCount + '</div><div class="lbl">⏰ 今日待复习</div></div>'
-    + '<div class="stat"><div class="num">' + mastered + '</div><div class="lbl">😎 熟知</div></div>'
-    + '</div><div class="spacer"></div>';
+  var st = streak();
+  var student = esc(DATA.config.student || '同学');
+  // 主视觉:大标题 + 居中大进度
+  var h = '<section class="today-hero">'
+    + '<div class="hero-glow"></div>'
+    + '<span class="pill-soft">📅 ' + fmtToday() + ' · ' + esc(DATA.config.book || '') + '</span>'
+    + '<h1 class="hero-title-xl">Hi ' + student + '！开始今日的英语复习吧</h1>'
+    + '<div class="prog-center">' + bigRing(pct)
+    + '<div class="prog-caption">今日进度 · 已复习 <b>' + done + '</b>/' + planned + ' 词'
+    + (tStats.a ? ' · 已答 ' + tStats.a + ' 题' : '') + '</div></div>'
+    + '<div class="stat-inline">'
+    + siStat('📌', newCount, '待学新词')
+    + siStat('⏰', reviewCount, '今日待复习')
+    + siStat('😎', mastered, '熟知')
+    + siStat('🔥', st, '连续天数')
+    + '</div>';
   if (due.length > 0) {
-    h += '<button class="btn" onclick="startSmartQuiz()">▶ 开始今日复习(' + due.length + ' 个单词)</button>';
-    if (due.length > 15) h += '<div class="hint">积压较多,会优先安排逾期最久的单词,每轮 15 个,做完可以再来一轮。</div>';
+    h += '<button class="btn-hero" onclick="startSmartQuiz()">开始今日复习<span class="arw">→</span></button>';
+    if (due.length > 15) h += '<div class="hint" style="margin-top:12px">积压较多,会优先安排逾期最久的单词,每轮 15 个。</div>';
   } else {
-    h += '<div class="feedback ok">🎉 今天的复习任务已全部完成!</div>';
+    h += '<button class="btn-hero" onclick="go(\'words\')">浏览单词本<span class="arw">→</span></button>';
+    h += '<div class="hint" style="margin-top:12px">今天的复习已全部完成 🎉</div>';
   }
-  h += '</div>';
-  h += '<div class="card"><h3>📅 复习计划</h3>';
-  h += '<div class="sched-row"><span>明天</span><b>' + tomorrow + ' 个单词</b></div>';
+  h += '</section>';
+  // 底部 4 分块(低调)
+  h += '<div class="bottom-grid">';
+  h += '<div class="mini-card"><h4>📅 复习计划</h4>'
+    + '<div class="sched-row"><span>明天</span><b>' + tomorrow + '</b></div>';
   laterKeys.forEach(function (k) {
-    h += '<div class="sched-row"><span>' + k + '</span><b>' + later[k] + ' 个单词</b></div>';
+    h += '<div class="sched-row"><span>' + k.slice(5) + '</span><b>' + later[k] + '</b></div>';
   });
-  if (tomorrow === 0 && laterKeys.length === 0) h += '<div class="hint">完成练习后,这里会显示未来的复习安排。答对的单词按 1、2、4、7、15、30、60 天的间隔复习,全部通过后成为「熟知」,不再出现。</div>';
+  if (tomorrow === 0 && laterKeys.length === 0) h += '<div class="muted-p">完成练习后显示未来复习安排。</div>';
   h += '</div>';
   var latest = DATA.lessons[DATA.lessons.length - 1];
   if (latest) {
-    h += '<div class="card"><h3>📖 最新课程</h3><div><span class="tag">' + esc(latest.date) + '</span>' + esc(latest.title) + '</div>'
-      + '<div class="spacer"></div><button class="btn secondary small" onclick="state.openLessons[\'' + latest.id + '\']=true;go(\'words\')">查看单词</button> '
-      + '<button class="btn secondary small" onclick="startLessonQuiz(\'' + latest.id + '\')">练本课单词</button> '
+    h += '<div class="mini-card"><h4>📖 最新课程</h4>'
+      + '<div style="font-size:13px;margin-bottom:4px"><span class="tag">' + esc(latest.date) + '</span></div>'
+      + '<div style="font-size:13px;color:var(--ink-soft);margin-bottom:2px">' + esc(latest.title) + '</div>'
+      + '<button class="btn secondary small" onclick="state.openLessons[\'' + latest.id + '\']=true;go(\'words\')">查看单词</button>'
+      + '<button class="btn secondary small" onclick="startLessonQuiz(\'' + latest.id + '\')">练本课单词</button>'
       + ((latest.questions || []).length ? '<button class="btn secondary small" onclick="startGrammarQuiz(\'' + latest.id + '\')">练本课语法</button>' : '') + '</div>';
   }
-  h += '<div class="card"><h3>⏰ 每日提醒</h3>'
-    + '<p style="font-size:13px;color:var(--muted)">选一个每天固定的复习时间,点「加入日历」,手机日历会每天弹通知提醒你,点通知直达本页。再把本页添加到主屏幕,一点就能进来。</p>'
-    + '<div style="display:flex;gap:10px;align-items:center"><input type="time" id="remind-time" class="mini-input" value="12:30">'
-    + '<button class="btn small" onclick="downloadIcs()">📅 加入日历</button></div>'
-    + '<div class="hint">想改时间,在日历 App 里改即可。</div><div class="spacer"></div>'
-    + '<button class="btn secondary small" onclick="makeReport()">📊 生成学习周报发老师</button></div>';
-  h += '<div class="card"><h3>💾 学习进度</h3>'
-    + '<p style="font-size:13px;color:var(--muted)">进度保存在本机浏览器里,关机、关页面都不会丢。建议偶尔点「备份进度」,换手机或误清数据时用「恢复进度」找回(备份包含复习进度、错词本和全部统计数据)。</p><div class="spacer"></div>'
-    + '<button class="btn secondary small" onclick="exportProgress()">备份进度</button> '
+  h += '<div class="mini-card"><h4>⏰ 每日提醒</h4>'
+    + '<div class="muted-p" style="margin-bottom:8px">选个时间加入手机日历,每天提醒复习。</div>'
+    + '<input type="time" id="remind-time" class="mini-input" value="12:30" style="width:100% !important">'
+    + '<button class="btn small" onclick="downloadIcs()">📅 加入日历</button>'
+    + '<button class="btn secondary small" onclick="makeReport()">📊 生成周报发老师</button></div>';
+  h += '<div class="mini-card"><h4>💾 学习进度</h4>'
+    + '<div class="muted-p" style="margin-bottom:8px">进度存在本机。建议偶尔备份,换机时恢复。</div>'
+    + '<button class="btn secondary small" onclick="exportProgress()">备份进度</button>'
     + '<button class="btn secondary small" onclick="document.getElementById(\'import-progress\').click()">恢复进度</button>'
     + '<input type="file" id="import-progress" accept=".json" style="display:none" onchange="importProgress(this)"></div>';
+  h += '</div>';
   return h;
+}
+function siStat(ic, num, lbl) {
+  return '<div class="si"><div class="ic">' + ic + '</div><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div>';
+}
+function bigRing(pct) {
+  var r = 74, c = 2 * Math.PI * r, off = (c * (1 - pct / 100)).toFixed(1);
+  return '<div class="prog-ring"><svg viewBox="0 0 168 168">'
+    + '<circle cx="84" cy="84" r="' + r + '" fill="none" stroke="#e6eef5" stroke-width="13"/>'
+    + '<circle cx="84" cy="84" r="' + r + '" fill="none" stroke="url(#pg)" stroke-width="13" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off + '"/>'
+    + '<defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc4f2"/><stop offset="1" stop-color="#0369a1"/></linearGradient></defs>'
+    + '</svg><div class="prog-pct">' + pct + '%<small>完成</small></div></div>';
+}
+function fmtToday() {
+  var d = new Date();
+  return (d.getMonth() + 1) + '月' + d.getDate() + '日';
 }
 function makeReport() {
   var all = allWords(), stats = ls('efe_stats', {});

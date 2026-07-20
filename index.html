@@ -9,26 +9,34 @@
 <meta name="apple-mobile-web-app-title" content="英语复习">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
 <title>每日英语复习</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <div class="hwrap">
-    <div>
-      <h1 id="app-title">每日英语复习</h1>
-      <div class="sub" id="app-sub"></div>
+<div id="shell">
+  <aside id="sidebar">
+    <div class="side-brand">
+      <span class="logo">📖</span>
+      <div class="side-brand-txt">
+        <h1 id="app-title">每日英语复习</h1>
+        <div class="sub" id="app-sub"></div>
+      </div>
     </div>
-    <div class="hbadge" id="hbadge" style="display:none">🔥</div>
+    <nav id="nav"></nav>
+    <div class="side-foot"><span class="hbadge" id="hbadge" style="display:none">🔥</span></div>
+  </aside>
+  <div id="content">
+    <div id="content-inner">
+      <main id="view"></main>
+      <aside id="toc"></aside>
+    </div>
+    <footer>基于艾宾浩斯记忆曲线 · <a href="#" id="teacher-link">老师入口</a></footer>
   </div>
-</header>
-<nav id="nav"></nav>
-<div id="layout">
-  <aside id="toc"></aside>
-  <main id="view"></main>
 </div>
 <button id="toc-fab" onclick="toggleTocPanel(true)">📑</button>
 <div id="toc-panel" onclick="toggleTocPanel(false)"><div class="panel-inner" onclick="event.stopPropagation()"><div class="toc-title">📑 快速跳转</div><div class="toc-list" id="toc-panel-list"></div></div></div>
-<footer>基于艾宾浩斯记忆曲线 · <a href="#" id="teacher-link">老师入口</a></footer>
 
 <script id="lesson-data" type="application/json">
 {
