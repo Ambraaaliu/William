@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#e0f2fe">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="英语复习">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+<title>每日英语复习</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+      <h1 id="app-title">每日英语复习</h1>
+      <div class="sub" id="app-sub"></div>
+    </div>
+    <div class="hbadge" id="hbadge" style="display:none">🔥</div>
+  </div>
+</header>
+<nav id="nav"></nav>
+<div id="layout">
+  <aside id="toc"></aside>
+  <main id="view"></main>
+</div>
+<button id="toc-fab" onclick="toggleTocPanel(true)">📑</button>
+<div id="toc-panel" onclick="toggleTocPanel(false)"><div class="panel-inner" onclick="event.stopPropagation()"><div class="toc-title">📑 快速跳转</div><div class="toc-list" id="toc-panel-list"></div></div></div>
+<footer>基于艾宾浩斯记忆曲线 · <a href="#" id="teacher-link">老师入口</a></footer>
+
+<script id="lesson-data" type="application/json">
+{
+  "rev": 121,
+  "config": {
+    "title": "William 的每日英语复习",
+    "student": "William",
+    "pin": "8888",
+    "book": "English for Everyone 初级",
+    "siteUrl": ""
+  },
+  "lessons": [
+    {
+      "id": "U1",
+      "date": "2026-06-15",
+      "title": "Unit 1 · 自我介绍",
+      "words": [
+        {
+          "en": "hello",
+          "zh": "你好(正式或非正式)",
+          "example": "Hello! I am Lyla.",
+          "exampleZh": "你好!我是Lyla。"
+        },
+        {
+          "en": "hi",
+          "zh": "嗨(永远非正式)",
+          "example": "Hi! My name is Joe.",
+          "exampleZh": "嗨!我叫Joe。"
+        },
+        {
+          "en": "name",
+          "zh": "名字",
+          "example": "What is your name?",
+          "exampleZh": "你叫什么名字?"
+        },
+        {
+          "en": "first name",
+          "zh": "名(出生时取的名字)",
+          "example": "Jacob Williams. Jacob is his first name.",
+          "exampleZh": "Jacob Williams,Jacob 是他的名。"
+        },
+        {
+          "en": "last name",
+          "zh": "姓(家族姓氏,也叫 surname)",
+          "example": "Williams is his last name.",
+          "exampleZh": "Williams 是他的姓。"
+        },
+        {
+          "en": "full name",
+          "zh": "全名(名+姓)",
+          "example": "My full name is Jacob Williams.",
+          "exampleZh": "我的全名是 Jacob Williams。"
+        },
+        {
+          "en": "surname",
+          "zh": "姓氏(最常用说法)",
+          "example": "What is your surname?",
+          "exampleZh": "你姓什么?"
+        },
+        {
+          "en": "spell",
+          "zh": "拼写",
+          "example": "How do you spell your name?",
+          "exampleZh": "你的名字怎么拼?"
+        },
+        {
+          "en": "letter",
+          "zh": "字母",
+          "example": "J-A-C-O-B, five letters.",
+          "exampleZh": "J-A-C-O-B,五个字母。"
+        },
+        {
+          "en": "capital letter",
+          "zh": "大写字母",
+          "example": "Use a capital letter at the start of a name.",
+          "exampleZh": "名字开头要用大写字母。"
+        },
+        {
+          "en": "meet",
+          "zh": "遇见;认识",
+          "example": "Nice to meet you.",
+          "exampleZh": "很高兴认识你。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "用 be 动词介绍自己",
+          "body": "两种说法都正确:\n① I am + 名字\n② My name is + 名字\nHello 可正式可非正式;Hi 永远是非正式(日常用语)。",
+          "examples": [
+            {
+              "en": "Hello! I am Lyla.",
+              "zh": "你好!我是Lyla。"
+            },
+            {
+              "en": "Hi! My name is Joe.",
+              "zh": "嗨!我叫Joe。"
+            }
+          ]
+        },
+        {
+          "title": "缩略形式 Contractions",
+          "body": "日常对话常把两个词合并缩短:\nI am → I'm\nname is → name's",
+          "examples": [
+            {
+              "en": "I'm Lyla.",
+              "zh": "我是Lyla。"
+            },
+            {
+              "en": "My name's Joe.",
+              "zh": "我叫Joe。"
+            }
+          ]
+        },
+        {
+          "title": "名字首字母要大写",
+          "body": "每个名字的首字母都要大写:\nlyla ✗ → Lyla ✓",
+          "examples": [
+            {
+              "en": "My name is Jacob Williams.",
+              "zh": "我叫 Jacob Williams。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "哪个打招呼的说法永远是非正式的?",
+          "options": [
+            "Hello",
+            "Hi"
+          ],
+          "answer": "Hi",
+          "explain": "Hello 可正式可非正式,Hi 永远非正式。"
+        },
+        {
+          "type": "choice",
+          "q": "\"I am\" 的缩略形式是?",
+          "options": [
+            "I'm",
+            "Im",
+            "I's"
+          ],
+          "answer": "I'm",
+          "explain": ""
+        },
+        {
+          "type": "fill",
+          "q": "My name ____ Joe.(be动词)",
+          "answer": "is",
+          "explain": "name 是第三人称单数,用 is。"
+        },
+        {
+          "type": "choice",
+          "q": "Jacob Williams 中,Williams 是他的?",
+          "options": [
+            "first name",
+            "last name",
+            "full name"
+          ],
+          "answer": "last name",
+          "explain": "last name / surname = 姓。"
+        },
+        {
+          "type": "choice",
+          "q": "哪个写法正确?",
+          "options": [
+            "my name is lyla.",
+            "My name is Lyla."
+          ],
+          "answer": "My name is Lyla.",
+          "explain": "句首和名字首字母都要大写。"
+        },
+        {
+          "type": "choice",
+          "passage": "Hello! My name is Charlie. Nice to meet you.",
+          "q": "他叫什么名字?",
+          "options": [
+            "Joseph",
+            "Charlie",
+            "Oliver"
+          ],
+          "answer": "Charlie",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U2A",
+      "date": "2026-06-18",
+      "title": "Unit 2 · 国家与国籍(一) 亚太与美洲",
+      "words": [
+        {
+          "en": "Chinese",
+          "zh": "中国的;中国人;汉语",
+          "example": "I am from China. I am Chinese.",
+          "exampleZh": "我来自中国,我是中国人。"
+        },
+        {
+          "en": "Japanese",
+          "zh": "日本的;日本人;日语",
+          "example": "She is from Japan. She is Japanese.",
+          "exampleZh": "她来自日本,她是日本人。"
+        },
+        {
+          "en": "Korean",
+          "zh": "韩国的;韩国人;韩语",
+          "example": "He is from South Korea. He is Korean.",
+          "exampleZh": "他来自韩国,他是韩国人。"
+        },
+        {
+          "en": "Thai",
+          "zh": "泰国的;泰国人;泰语",
+          "example": "They are from Thailand. They are Thai.",
+          "exampleZh": "他们来自泰国。"
+        },
+        {
+          "en": "Indian",
+          "zh": "印度的;印度人",
+          "example": "She is from India. She is Indian.",
+          "exampleZh": "她来自印度。"
+        },
+        {
+          "en": "Singaporean",
+          "zh": "新加坡的;新加坡人",
+          "example": "He is from Singapore. He is Singaporean.",
+          "exampleZh": "他来自新加坡。"
+        },
+        {
+          "en": "Indonesian",
+          "zh": "印尼的;印尼人;印尼语",
+          "example": "They are from Indonesia.",
+          "exampleZh": "他们来自印度尼西亚。"
+        },
+        {
+          "en": "Filipino",
+          "zh": "菲律宾的;菲律宾人",
+          "example": "She is from the Philippines. She is Filipino.",
+          "exampleZh": "她来自菲律宾。"
+        },
+        {
+          "en": "Australian",
+          "zh": "澳大利亚的;澳大利亚人",
+          "example": "I am Australian.",
+          "exampleZh": "我是澳大利亚人。"
+        },
+        {
+          "en": "American",
+          "zh": "美国的;美国人",
+          "example": "He is from the USA. He is American.",
+          "exampleZh": "他来自美国。"
+        },
+        {
+          "en": "Canadian",
+          "zh": "加拿大的;加拿大人",
+          "example": "She is from Canada. She is Canadian.",
+          "exampleZh": "她来自加拿大。"
+        },
+        {
+          "en": "Mexican",
+          "zh": "墨西哥的;墨西哥人",
+          "example": "They are from Mexico.",
+          "exampleZh": "他们来自墨西哥。"
+        },
+        {
+          "en": "Brazilian",
+          "zh": "巴西的;巴西人",
+          "example": "He is from Brazil. He is Brazilian.",
+          "exampleZh": "他来自巴西。"
+        },
+        {
+          "en": "Argentinian",
+          "zh": "阿根廷的;阿根廷人",
+          "example": "She is from Argentina.",
+          "exampleZh": "她来自阿根廷。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "国籍形容词的构成规律",
+          "body": "① 加 -an / -ian:词尾是 -a、-ia 时去掉后加(Canada→Canadian, Australia→Australian);辅音结尾直接加 -ian(Brazil→Brazilian)\n② 加 -ese:China→Chinese, Japan→Japanese\n③ 加 -i:Pakistan→Pakistani\n④ 加 -ish:Britain→British, Spain→Spanish\n⑤ 不规则,需单独记:France→French, Netherlands→Dutch, Greece→Greek",
+          "examples": [
+            {
+              "en": "America, American",
+              "zh": "美国 → 美国的"
+            },
+            {
+              "en": "China, Chinese",
+              "zh": "中国 → 中国的"
+            },
+            {
+              "en": "Netherlands, Dutch",
+              "zh": "荷兰 → 荷兰的(不规则)"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "China 的国籍形容词是?",
+          "options": [
+            "Chinese",
+            "Chinish",
+            "Chinan"
+          ],
+          "answer": "Chinese",
+          "explain": "加 -ese。"
+        },
+        {
+          "type": "fill",
+          "q": "Japan → ____(国籍形容词)",
+          "answer": "Japanese",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "q": "Canada 的国籍形容词是?",
+          "options": [
+            "Canadian",
+            "Canadese",
+            "Canadish"
+          ],
+          "answer": "Canadian",
+          "explain": "-a 结尾去掉后加 -ian。"
+        },
+        {
+          "type": "choice",
+          "passage": "I am from Canada. I am Canadian.",
+          "q": "她来自哪个国家?",
+          "options": [
+            "Canada",
+            "Mexico",
+            "Brazil"
+          ],
+          "answer": "Canada",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U2B",
+      "date": "2026-06-22",
+      "title": "Unit 2 · 国家与国籍(二) + 你来自哪里",
+      "words": [
+        {
+          "en": "British",
+          "zh": "英国的;英国人",
+          "example": "He is from the UK. He is British.",
+          "exampleZh": "他来自英国,他是英国人。"
+        },
+        {
+          "en": "French",
+          "zh": "法国的;法国人;法语",
+          "example": "She is from France. She is French.",
+          "exampleZh": "她来自法国。"
+        },
+        {
+          "en": "German",
+          "zh": "德国的;德国人;德语",
+          "example": "They are from Germany.",
+          "exampleZh": "他们来自德国。"
+        },
+        {
+          "en": "Spanish",
+          "zh": "西班牙的;西班牙人;西班牙语",
+          "example": "I am from Spain. I am Spanish.",
+          "exampleZh": "我来自西班牙,我是西班牙人。"
+        },
+        {
+          "en": "Russian",
+          "zh": "俄罗斯的;俄国人;俄语",
+          "example": "He is from Russia. He is Russian.",
+          "exampleZh": "他来自俄罗斯。"
+        },
+        {
+          "en": "Turkish",
+          "zh": "土耳其的;土耳其人;土耳其语",
+          "example": "She is from Turkey. She is Turkish.",
+          "exampleZh": "她来自土耳其。"
+        },
+        {
+          "en": "Dutch",
+          "zh": "荷兰的;荷兰人;荷兰语(不规则)",
+          "example": "He is from the Netherlands. He is Dutch.",
+          "exampleZh": "他来自荷兰,他是荷兰人。"
+        },
+        {
+          "en": "Swiss",
+          "zh": "瑞士的;瑞士人",
+          "example": "She is from Switzerland. She is Swiss.",
+          "exampleZh": "她来自瑞士。"
+        },
+        {
+          "en": "Greek",
+          "zh": "希腊的;希腊人;希腊语",
+          "example": "They are from Greece.",
+          "exampleZh": "他们来自希腊。"
+        },
+        {
+          "en": "Egyptian",
+          "zh": "埃及的;埃及人",
+          "example": "He is from Egypt. He is Egyptian.",
+          "exampleZh": "他来自埃及。"
+        },
+        {
+          "en": "where",
+          "zh": "哪里(问地点的疑问词)",
+          "example": "Where are you from?",
+          "exampleZh": "你来自哪里?"
+        },
+        {
+          "en": "from",
+          "zh": "来自;从",
+          "example": "I am from Spain.",
+          "exampleZh": "我来自西班牙。"
+        },
+        {
+          "en": "nationality",
+          "zh": "国籍",
+          "example": "What is your nationality?",
+          "exampleZh": "你是什么国籍?"
+        },
+        {
+          "en": "how old",
+          "zh": "多大年纪",
+          "example": "How old are you?",
+          "exampleZh": "你多大了?"
+        },
+        {
+          "en": "years old",
+          "zh": "……岁",
+          "example": "I am ten years old.",
+          "exampleZh": "我十岁。"
+        },
+        {
+          "en": "age",
+          "zh": "年龄",
+          "example": "What is your age?",
+          "exampleZh": "你的年龄是多少?"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "be 动词变化表",
+          "body": "be 动词随主语变化:\nI → am\nYou(你/你们) → are\nHe / She / It → is\nWe / They → are",
+          "examples": [
+            {
+              "en": "I am Chinese.",
+              "zh": "我是中国人。"
+            },
+            {
+              "en": "He is from Japan.",
+              "zh": "他来自日本。"
+            },
+            {
+              "en": "They are from France.",
+              "zh": "他们来自法国。"
+            }
+          ]
+        },
+        {
+          "title": "问和答:你来自哪里",
+          "body": "两种表达方式,都正确,可互换:\n① from + 国名(名词,首字母大写):I am from Spain.\n② 直接用国籍形容词,不需要 from:I am Spanish.\n注意:I am from Spanish ✗",
+          "examples": [
+            {
+              "en": "Where are you from? I am from Spain.",
+              "zh": "你来自哪里?我来自西班牙。"
+            },
+            {
+              "en": "What is your nationality? I am Spanish.",
+              "zh": "你是什么国籍?我是西班牙人。"
+            }
+          ]
+        },
+        {
+          "title": "数字发音:-teen 与 -ty",
+          "body": "区分关键在重音:\n-teen 结尾(13-19)重音在末尾:thirteen\n-ty 结尾(30-90)重音在首音节:thirty",
+          "examples": [
+            {
+              "en": "thirteen",
+              "zh": "十三(重音在后)"
+            },
+            {
+              "en": "thirty",
+              "zh": "三十(重音在前)"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "fill",
+          "q": "Where ____ you from?",
+          "answer": "are",
+          "explain": "主语 you 用 are。"
+        },
+        {
+          "type": "choice",
+          "q": "哪个说法正确?",
+          "options": [
+            "I am from Spanish.",
+            "I am Spanish.",
+            "I am Spain."
+          ],
+          "answer": "I am Spanish.",
+          "explain": "from 后接国名;国籍形容词直接用,不加 from。"
+        },
+        {
+          "type": "choice",
+          "q": "He ____ from Japan.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": "is",
+          "explain": "第三人称单数用 is。"
+        },
+        {
+          "type": "fill",
+          "q": "How ____ are you? — I am ten years old.",
+          "answer": "old",
+          "explain": "how old 问年龄。"
+        },
+        {
+          "type": "choice",
+          "q": "thirteen 和 thirty 怎么区分?",
+          "options": [
+            "重音位置不同",
+            "拼写完全相同",
+            "意思相同"
+          ],
+          "answer": "重音位置不同",
+          "explain": "-teen 重音在末尾,-ty 重音在首音节。"
+        },
+        {
+          "type": "fill",
+          "passage": "Where are you from? I am from France.",
+          "q": "她来自哪个国家?(英文国名)",
+          "answer": "France",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U4",
+      "date": "2026-06-25",
+      "title": "Unit 4 · 家庭成员",
+      "words": [
+        {
+          "en": "mother",
+          "zh": "母亲(口语 mom / mum 妈妈)",
+          "example": "This is my mother.",
+          "exampleZh": "这是我的母亲。"
+        },
+        {
+          "en": "father",
+          "zh": "父亲(口语 dad 爸爸)",
+          "example": "My father is a doctor.",
+          "exampleZh": "我爸爸是医生。"
+        },
+        {
+          "en": "parents",
+          "zh": "父母",
+          "example": "These are my parents.",
+          "exampleZh": "这些是我的父母。"
+        },
+        {
+          "en": "brother",
+          "zh": "兄弟",
+          "example": "I have one brother.",
+          "exampleZh": "我有一个兄弟。"
+        },
+        {
+          "en": "sister",
+          "zh": "姐妹",
+          "example": "My sister is ten years old.",
+          "exampleZh": "我妹妹十岁。"
+        },
+        {
+          "en": "son",
+          "zh": "儿子",
+          "example": "John is their son.",
+          "exampleZh": "John 是他们的儿子。"
+        },
+        {
+          "en": "daughter",
+          "zh": "女儿",
+          "example": "Rachel is our daughter.",
+          "exampleZh": "Rachel 是我们的女儿。"
+        },
+        {
+          "en": "children",
+          "zh": "孩子们(child 的复数)",
+          "example": "They have two children.",
+          "exampleZh": "他们有两个孩子。"
+        },
+        {
+          "en": "husband",
+          "zh": "丈夫",
+          "example": "This is her husband.",
+          "exampleZh": "这是她的丈夫。"
+        },
+        {
+          "en": "wife",
+          "zh": "妻子",
+          "example": "His wife is a teacher.",
+          "exampleZh": "他的妻子是老师。"
+        },
+        {
+          "en": "grandfather",
+          "zh": "祖父;外祖父",
+          "example": "My grandfather is old.",
+          "exampleZh": "我的祖父年纪大了。"
+        },
+        {
+          "en": "grandmother",
+          "zh": "祖母;外祖母(口语 grandma)",
+          "example": "This is Dave's grandmother.",
+          "exampleZh": "这是 Dave 的祖母。"
+        },
+        {
+          "en": "grandparents",
+          "zh": "祖父母;外祖父母",
+          "example": "My grandparents have a house.",
+          "exampleZh": "我的祖父母有一栋房子。"
+        },
+        {
+          "en": "uncle",
+          "zh": "叔叔;伯伯;舅舅;姑父",
+          "example": "My uncle is from Canada.",
+          "exampleZh": "我的叔叔来自加拿大。"
+        },
+        {
+          "en": "aunt",
+          "zh": "姑姑;阿姨;婶婶",
+          "example": "My aunt has two children.",
+          "exampleZh": "我的阿姨有两个孩子。"
+        },
+        {
+          "en": "cousin",
+          "zh": "堂/表兄弟姐妹",
+          "example": "He is my cousin.",
+          "exampleZh": "他是我的表兄弟。"
+        },
+        {
+          "en": "nephew",
+          "zh": "侄子;外甥",
+          "example": "My nephew is five years old.",
+          "exampleZh": "我的侄子五岁。"
+        },
+        {
+          "en": "niece",
+          "zh": "侄女;外甥女",
+          "example": "My niece is a student.",
+          "exampleZh": "我的侄女是学生。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "家庭称谓小结",
+          "body": "① 口语:mother→mom/mum,father→dad,grandmother→grandma\n② children 是 child 的不规则复数\n③ -in-law 表示姻亲:sister-in-law 嫂子/弟媳,brother-in-law 姐夫/妹夫\n④ step- 表示继亲:stepmother 继母,stepbrother 继兄弟",
+          "examples": [
+            {
+              "en": "This is my sister-in-law.",
+              "zh": "这是我的嫂子。"
+            },
+            {
+              "en": "He is my stepbrother.",
+              "zh": "他是我的继兄弟。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "child 的复数是?",
+          "options": [
+            "childs",
+            "children",
+            "childes"
+          ],
+          "answer": "children",
+          "explain": "不规则复数。"
+        },
+        {
+          "type": "choice",
+          "q": "「侄女 / 外甥女」的英文是?",
+          "options": [
+            "niece",
+            "nephew",
+            "cousin"
+          ],
+          "answer": "niece",
+          "explain": "nephew 是侄子,cousin 是堂/表兄弟姐妹。"
+        },
+        {
+          "type": "fill",
+          "q": "My father's mother is my ____.",
+          "answer": "grandmother",
+          "explain": "爸爸的妈妈是祖母。"
+        },
+        {
+          "type": "choice",
+          "q": "「继母」的英文是?",
+          "options": [
+            "stepmother",
+            "mother-in-law",
+            "grandmother"
+          ],
+          "answer": "stepmother",
+          "explain": "step- 表继亲,-in-law 表姻亲。"
+        },
+        {
+          "type": "choice",
+          "passage": "This is my family. My mother is a teacher and my father is a doctor.",
+          "q": "他的爸爸做什么工作?",
+          "options": [
+            "teacher",
+            "doctor",
+            "nurse"
+          ],
+          "answer": "doctor",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U5",
+      "date": "2026-06-29",
+      "title": "Unit 5 · 所有格形容词",
+      "words": [
+        {
+          "en": "my",
+          "zh": "我的",
+          "example": "Felix is my cat.",
+          "exampleZh": "Felix 是我的猫。"
+        },
+        {
+          "en": "your",
+          "zh": "你的;你们的",
+          "example": "Coco is your rabbit.",
+          "exampleZh": "Coco 是你的兔子。"
+        },
+        {
+          "en": "his",
+          "zh": "他的",
+          "example": "Polly is his parrot.",
+          "exampleZh": "Polly 是他的鹦鹉。"
+        },
+        {
+          "en": "her",
+          "zh": "她的",
+          "example": "Buster is her dog.",
+          "exampleZh": "Buster 是她的狗。"
+        },
+        {
+          "en": "its",
+          "zh": "它的",
+          "example": "The dog likes its ball.",
+          "exampleZh": "狗喜欢它的球。"
+        },
+        {
+          "en": "our",
+          "zh": "我们的",
+          "example": "Rachel is our daughter.",
+          "exampleZh": "Rachel 是我们的女儿。"
+        },
+        {
+          "en": "their",
+          "zh": "他们的",
+          "example": "John is their son.",
+          "exampleZh": "John 是他们的儿子。"
+        },
+        {
+          "en": "cat",
+          "zh": "猫",
+          "example": "This is my cat.",
+          "exampleZh": "这是我的猫。"
+        },
+        {
+          "en": "dog",
+          "zh": "狗",
+          "example": "Rex is her dog.",
+          "exampleZh": "Rex 是她的狗。"
+        },
+        {
+          "en": "rabbit",
+          "zh": "兔子",
+          "example": "That is your rabbit.",
+          "exampleZh": "那是你的兔子。"
+        },
+        {
+          "en": "parrot",
+          "zh": "鹦鹉",
+          "example": "That is his parrot.",
+          "exampleZh": "那是他的鹦鹉。"
+        },
+        {
+          "en": "horse",
+          "zh": "马",
+          "example": "This is her horse.",
+          "exampleZh": "这是她的马。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "所有格形容词",
+          "body": "放在名词前,表示某物属于谁。它随「拥有者」的人称和单复数变化,与后面的名词无关:\nI→my  you→your  he→his  she→her  it→its  we→our  they→their",
+          "examples": [
+            {
+              "en": "Felix is my cat.",
+              "zh": "Felix 是我的猫。"
+            },
+            {
+              "en": "Buster is her dog.",
+              "zh": "Buster 是她的狗。"
+            },
+            {
+              "en": "John is their son.",
+              "zh": "John 是他们的儿子。"
+            }
+          ]
+        },
+        {
+          "title": "句型:This / That + is + 所有格 + 名词",
+          "body": "This/That + is + 所有格形容词 + 名词",
+          "examples": [
+            {
+              "en": "This is my cat.",
+              "zh": "这是我的猫。"
+            },
+            {
+              "en": "That is your rabbit.",
+              "zh": "那是你的兔子。"
+            },
+            {
+              "en": "This is our dog.",
+              "zh": "这是我们的狗。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "Rachel is ____ daughter.(我们的)",
+          "options": [
+            "our",
+            "ours",
+            "we"
+          ],
+          "answer": "our",
+          "explain": "名词前用所有格形容词 our。"
+        },
+        {
+          "type": "choice",
+          "q": "____ dog is big.(她的)",
+          "options": [
+            "Her",
+            "His",
+            "She"
+          ],
+          "answer": "Her",
+          "explain": ""
+        },
+        {
+          "type": "fill",
+          "q": "Polly is ____ parrot.(他的)",
+          "answer": "his",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "This is I cat.",
+            "This is my cat.",
+            "This is me cat."
+          ],
+          "answer": "This is my cat.",
+          "explain": "名词前要用所有格形容词。"
+        },
+        {
+          "type": "fill",
+          "q": "The dog likes ____ ball.(它的)",
+          "answer": "its",
+          "explain": "its 不加撇号。"
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U6",
+      "date": "2026-07-02",
+      "title": "Unit 6 · 所有格 's",
+      "words": [
+        {
+          "en": "house",
+          "zh": "房子",
+          "example": "That is his grandparents' house.",
+          "exampleZh": "那是他祖父母的房子。"
+        },
+        {
+          "en": "ball",
+          "zh": "球",
+          "example": "The dog's ball is red.",
+          "exampleZh": "狗的球是红色的。"
+        },
+        {
+          "en": "passport",
+          "zh": "护照",
+          "example": "People's passports are important.",
+          "exampleZh": "人们的护照很重要。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "单数名词 + 's",
+          "body": "在单数名词后加 's 表示「某人的」:\nthe mother of Lizzie → Lizzie's mother(更常用)\n名字以 s 结尾时(如 Tess),Tess's 和 Tess' 都可以。",
+          "examples": [
+            {
+              "en": "Lizzie's mother",
+              "zh": "Lizzie 的妈妈"
+            },
+            {
+              "en": "Dave's grandmother",
+              "zh": "Dave 的祖母"
+            },
+            {
+              "en": "Juan and Beth's parrot",
+              "zh": "Juan 和 Beth 的鹦鹉"
+            }
+          ]
+        },
+        {
+          "title": "复数名词(以 s 结尾)只加 '",
+          "body": "复数本身已有 s,只加撇号,不再加 s:\nparent's cat = 一位家长的猫\nparents' cat = 父母两人的猫\n两者读音相同,拼写不同!",
+          "examples": [
+            {
+              "en": "Ginger is my parents' cat.",
+              "zh": "Ginger 是我父母的猫。"
+            },
+            {
+              "en": "This is my cousins' rabbit.",
+              "zh": "这是我堂兄妹们的兔子。"
+            },
+            {
+              "en": "Rex is her brothers' dog.",
+              "zh": "Rex 是她几个哥哥的狗。"
+            }
+          ]
+        },
+        {
+          "title": "不规则复数(不以 s 结尾)仍加 's",
+          "body": "child→children→children's\nman→men→men's\nwoman→women→women's\nperson→people→people's",
+          "examples": [
+            {
+              "en": "Polly is our children's parrot.",
+              "zh": "Polly 是我们孩子们的鹦鹉。"
+            },
+            {
+              "en": "men's wallets",
+              "zh": "男士们的钱包"
+            },
+            {
+              "en": "women's books",
+              "zh": "女士们的书"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "「我父母的猫」正确写法是?",
+          "options": [
+            "my parent's cat",
+            "my parents' cat",
+            "my parents's cat"
+          ],
+          "answer": "my parents' cat",
+          "explain": "复数以 s 结尾只加撇号。"
+        },
+        {
+          "type": "choice",
+          "q": "「孩子们的鹦鹉」正确写法是?",
+          "options": [
+            "childrens' parrot",
+            "children's parrot",
+            "childs' parrot"
+          ],
+          "answer": "children's parrot",
+          "explain": "不规则复数不以 s 结尾,加 's。"
+        },
+        {
+          "type": "choice",
+          "q": "「Tess 的狗」,哪个正确?",
+          "options": [
+            "只能写 Tess's dog",
+            "只能写 Tess' dog",
+            "Tess's 和 Tess' 都可以"
+          ],
+          "answer": "Tess's 和 Tess' 都可以",
+          "explain": "名字以 s 结尾,两种写法均可。"
+        },
+        {
+          "type": "choice",
+          "q": "parent's cat 和 parents' cat 的区别是?",
+          "options": [
+            "读音不同",
+            "一位家长的猫 和 父母两人的猫",
+            "没有区别"
+          ],
+          "answer": "一位家长的猫 和 父母两人的猫",
+          "explain": "读音相同,拼写和含义不同。"
+        },
+        {
+          "type": "choice",
+          "passage": "Ginger is my parents' cat.",
+          "q": "Ginger 是谁的猫?",
+          "options": [
+            "一位家长的",
+            "父母两人的",
+            "孩子们的"
+          ],
+          "answer": "父母两人的",
+          "explain": "parents' 是复数所有格。"
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U7A",
+      "date": "2026-07-06",
+      "title": "Unit 7 · 上 随身物品与指示代词",
+      "words": [
+        {
+          "en": "this",
+          "zh": "这个(近处单数)",
+          "example": "This is my bag.",
+          "exampleZh": "这是我的包。"
+        },
+        {
+          "en": "that",
+          "zh": "那个(远处单数)",
+          "example": "That is my bag.",
+          "exampleZh": "那是我的包。"
+        },
+        {
+          "en": "these",
+          "zh": "这些(近处复数)",
+          "example": "These are my bags.",
+          "exampleZh": "这些是我的包。"
+        },
+        {
+          "en": "those",
+          "zh": "那些(远处复数)",
+          "example": "Those are my bags.",
+          "exampleZh": "那些是我的包。"
+        },
+        {
+          "en": "wallet",
+          "zh": "钱包",
+          "example": "This is my wallet.",
+          "exampleZh": "这是我的钱包。"
+        },
+        {
+          "en": "purse",
+          "zh": "女士钱包;手袋",
+          "example": "That is her purse.",
+          "exampleZh": "那是她的手袋。"
+        },
+        {
+          "en": "coins",
+          "zh": "硬币",
+          "example": "These are my coins.",
+          "exampleZh": "这些是我的硬币。"
+        },
+        {
+          "en": "keys",
+          "zh": "钥匙",
+          "example": "Those are your keys.",
+          "exampleZh": "那些是你的钥匙。"
+        },
+        {
+          "en": "a bottle of water",
+          "zh": "一瓶水",
+          "example": "There is a bottle of water in my bag.",
+          "exampleZh": "我包里有一瓶水。"
+        },
+        {
+          "en": "apple",
+          "zh": "苹果",
+          "example": "This is an apple.",
+          "exampleZh": "这是一个苹果。"
+        },
+        {
+          "en": "sandwich",
+          "zh": "三明治",
+          "example": "That is my sandwich.",
+          "exampleZh": "那是我的三明治。"
+        },
+        {
+          "en": "cell phone",
+          "zh": "手机",
+          "example": "This is his cell phone.",
+          "exampleZh": "这是他的手机。"
+        },
+        {
+          "en": "bag",
+          "zh": "包",
+          "example": "These are my bags and those are your bags.",
+          "exampleZh": "这些是我的包,那些是你的包。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "指示代词 this / that / these / those",
+          "body": "近处单数 → this(这个)\n远处单数 → that(那个)\n近处复数 → these(这些)\n远处复数 → those(那些)\n小贴士:对比「谁的东西」时,自己的用 these,别人的用 those。",
+          "examples": [
+            {
+              "en": "This is my bag.",
+              "zh": "这是我的包。"
+            },
+            {
+              "en": "These are my bags.",
+              "zh": "这些是我的包。"
+            },
+            {
+              "en": "These are my bags and those are your bags.",
+              "zh": "这些是我的包,那些是你的包。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "离得远的多个东西用?",
+          "options": [
+            "this",
+            "these",
+            "those"
+          ],
+          "answer": "those",
+          "explain": "远处复数用 those。"
+        },
+        {
+          "type": "fill",
+          "q": "____ are my keys.(这些)",
+          "answer": "these",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "This are my coins.",
+            "These are my coins.",
+            "These is my coins."
+          ],
+          "answer": "These are my coins.",
+          "explain": "复数用 these + are。"
+        },
+        {
+          "type": "choice",
+          "q": "「那是她的手袋」是?",
+          "options": [
+            "That is her purse.",
+            "This is her purse.",
+            "Those is her purse."
+          ],
+          "answer": "That is her purse.",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "passage": "What is in my bag? A wallet, keys and a bottle of water.",
+          "q": "包里没有提到什么?",
+          "options": [
+            "keys",
+            "an apple",
+            "a wallet"
+          ],
+          "answer": "an apple",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U7B",
+      "date": "2026-07-09",
+      "title": "Unit 7 · 下 名词复数",
+      "words": [
+        {
+          "en": "watch",
+          "zh": "手表(复数 watches)",
+          "example": "I have two watches.",
+          "exampleZh": "我有两块手表。"
+        },
+        {
+          "en": "box",
+          "zh": "盒子(复数 boxes)",
+          "example": "Those are big boxes.",
+          "exampleZh": "那些是大盒子。"
+        },
+        {
+          "en": "bus",
+          "zh": "公共汽车(复数 buses)",
+          "example": "The buses are red.",
+          "exampleZh": "这些公共汽车是红色的。"
+        },
+        {
+          "en": "dictionary",
+          "zh": "词典(复数 dictionaries)",
+          "example": "These dictionaries are new.",
+          "exampleZh": "这些词典是新的。"
+        },
+        {
+          "en": "baby",
+          "zh": "婴儿(复数 babies)",
+          "example": "The babies are sleeping.",
+          "exampleZh": "婴儿们在睡觉。"
+        },
+        {
+          "en": "knife",
+          "zh": "刀(复数 knives)",
+          "example": "The knives are sharp.",
+          "exampleZh": "这些刀很锋利。"
+        },
+        {
+          "en": "leaf",
+          "zh": "叶子(复数 leaves)",
+          "example": "The leaves are green.",
+          "exampleZh": "叶子是绿色的。"
+        },
+        {
+          "en": "foot",
+          "zh": "脚(复数 feet)",
+          "example": "My feet are big.",
+          "exampleZh": "我的脚很大。"
+        },
+        {
+          "en": "tooth",
+          "zh": "牙齿(复数 teeth)",
+          "example": "Her teeth are white.",
+          "exampleZh": "她的牙齿很白。"
+        },
+        {
+          "en": "mouse",
+          "zh": "老鼠(复数 mice)",
+          "example": "The mice are small.",
+          "exampleZh": "老鼠很小。"
+        },
+        {
+          "en": "sheep",
+          "zh": "绵羊(单复数同形)",
+          "example": "Three sheep are on the farm.",
+          "exampleZh": "农场上有三只绵羊。"
+        },
+        {
+          "en": "fish",
+          "zh": "鱼(单复数同形)",
+          "example": "The fish are in the water.",
+          "exampleZh": "鱼在水里。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "名词复数(一):基本规则",
+          "body": "① 一般情况直接加 -s:book→books, cat→cats\n② 以 -s/-ss/-x/-ch/-sh/-o 结尾加 -es,读 /ɪz/:watch→watches, box→boxes, bus→buses\n③ 「辅音字母+y」变 y 为 i 加 -es:dictionary→dictionaries, baby→babies\n注意:「元音字母+y」直接加 -s:day→days, boy→boys",
+          "examples": [
+            {
+              "en": "book, books",
+              "zh": "书"
+            },
+            {
+              "en": "watch, watches",
+              "zh": "手表"
+            },
+            {
+              "en": "baby, babies",
+              "zh": "婴儿"
+            }
+          ]
+        },
+        {
+          "title": "名词复数(二):特殊变化",
+          "body": "④ 部分 -f/-fe 结尾变 v 加 -es:leaf→leaves, knife→knives(例外:roofs, chiefs)\n⑤ 不规则,单独记:man→men, woman→women, child→children, foot→feet, tooth→teeth, mouse→mice, person→people\n⑥ 单复数同形:sheep, fish, deer, Chinese",
+          "examples": [
+            {
+              "en": "knife, knives",
+              "zh": "刀"
+            },
+            {
+              "en": "foot, feet",
+              "zh": "脚"
+            },
+            {
+              "en": "sheep, sheep",
+              "zh": "绵羊(同形)"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "fill",
+          "q": "watch 的复数是 ____",
+          "answer": "watches",
+          "explain": "-ch 结尾加 -es。"
+        },
+        {
+          "type": "fill",
+          "q": "baby 的复数是 ____",
+          "answer": "babies",
+          "explain": "辅音+y,变 y 为 i 加 -es。"
+        },
+        {
+          "type": "choice",
+          "q": "foot 的复数是?",
+          "options": [
+            "foots",
+            "feet",
+            "footes"
+          ],
+          "answer": "feet",
+          "explain": "不规则变化。"
+        },
+        {
+          "type": "choice",
+          "q": "哪个词单复数同形?",
+          "options": [
+            "sheep",
+            "knife",
+            "box"
+          ],
+          "answer": "sheep",
+          "explain": "sheep/fish/deer 单复数同形。"
+        },
+        {
+          "type": "fill",
+          "q": "knife 的复数是 ____",
+          "answer": "knives",
+          "explain": "f/fe 变 v 加 -es。"
+        },
+        {
+          "type": "choice",
+          "q": "day 的复数是?",
+          "options": [
+            "daies",
+            "days",
+            "dayes"
+          ],
+          "answer": "days",
+          "explain": "元音+y 直接加 -s。"
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U8",
+      "date": "2026-07-13",
+      "title": "Unit 8 · 物主代词(名词性)",
+      "words": [
+        {
+          "en": "mine",
+          "zh": "我的(那个),单独使用",
+          "example": "This book is mine.",
+          "exampleZh": "这本书是我的。"
+        },
+        {
+          "en": "yours",
+          "zh": "你的(那个)",
+          "example": "That bag is yours.",
+          "exampleZh": "那个包是你的。"
+        },
+        {
+          "en": "hers",
+          "zh": "她的(那个)",
+          "example": "The dog is hers.",
+          "exampleZh": "这只狗是她的。"
+        },
+        {
+          "en": "ours",
+          "zh": "我们的(那个)",
+          "example": "That car is ours.",
+          "exampleZh": "那辆车是我们的。"
+        },
+        {
+          "en": "theirs",
+          "zh": "他们的(那个)",
+          "example": "The house is theirs.",
+          "exampleZh": "这栋房子是他们的。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "形容词性 vs 名词性物主代词",
+          "body": "对照表:my→mine, your→yours, his→his, her→hers, its→its, our→ours, their→theirs\n三个关键区别:\n① 位置:形容词性放名词前(my book);名词性单独使用,常放句尾(It's mine.)\n② 能否接名词:This is my book ✓ / This is mine book ✗\n③ his 和 its 两种形式相同,靠位置判断:His bag is red.(his+名词=形容词性)/ The bag is his.(单独使用=名词性)",
+          "examples": [
+            {
+              "en": "This is my book.",
+              "zh": "这是我的书。(my+名词)"
+            },
+            {
+              "en": "This book is mine.",
+              "zh": "这本书是我的。(mine 单独用)"
+            },
+            {
+              "en": "The bag is his.",
+              "zh": "这个包是他的。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "This book is ____.(我的)",
+          "options": [
+            "my",
+            "mine",
+            "me"
+          ],
+          "answer": "mine",
+          "explain": "句尾单独使用,用名词性 mine。"
+        },
+        {
+          "type": "choice",
+          "q": "____ bag is red.(她的)",
+          "options": [
+            "Her",
+            "Hers",
+            "She"
+          ],
+          "answer": "Her",
+          "explain": "名词前用形容词性 her。"
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "This is mine book.",
+            "This is my book.",
+            "This book is my."
+          ],
+          "answer": "This is my book.",
+          "explain": "mine 不能接名词,my 不能单独放句尾。"
+        },
+        {
+          "type": "fill",
+          "q": "That car is ____.(我们的,单独使用)",
+          "answer": "ours",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "q": "「那些是她的本子」是?",
+          "options": [
+            "Those are her notebooks.",
+            "Those are hers notebooks.",
+            "That are her notebooks."
+          ],
+          "answer": "Those are her notebooks.",
+          "explain": "名词前用 her;复数远处用 those。"
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U9",
+      "date": "2026-07-16",
+      "title": "Unit 9 · 职业与 a / an",
+      "words": [
+        {
+          "en": "job",
+          "zh": "工作;职业",
+          "example": "What is your job?",
+          "exampleZh": "你做什么工作?"
+        },
+        {
+          "en": "teacher",
+          "zh": "老师",
+          "example": "I'm a teacher.",
+          "exampleZh": "我是一名老师。"
+        },
+        {
+          "en": "doctor",
+          "zh": "医生",
+          "example": "He is a doctor.",
+          "exampleZh": "他是一名医生。"
+        },
+        {
+          "en": "nurse",
+          "zh": "护士",
+          "example": "She is a nurse.",
+          "exampleZh": "她是一名护士。"
+        },
+        {
+          "en": "scientist",
+          "zh": "科学家",
+          "example": "They are scientists.",
+          "exampleZh": "他们是科学家。"
+        },
+        {
+          "en": "farmer",
+          "zh": "农民",
+          "example": "A farmer works outside.",
+          "exampleZh": "农民在户外工作。"
+        },
+        {
+          "en": "gardener",
+          "zh": "园丁",
+          "example": "A gardener works in the garden.",
+          "exampleZh": "园丁在花园里工作。"
+        },
+        {
+          "en": "builder",
+          "zh": "建筑工人",
+          "example": "A builder works outside.",
+          "exampleZh": "建筑工人在户外工作。"
+        },
+        {
+          "en": "engineer",
+          "zh": "工程师",
+          "example": "He is an engineer.",
+          "exampleZh": "他是一名工程师。"
+        },
+        {
+          "en": "police officer",
+          "zh": "警察",
+          "example": "I'm a police officer.",
+          "exampleZh": "我是一名警察。"
+        },
+        {
+          "en": "artist",
+          "zh": "艺术家",
+          "example": "She is an artist.",
+          "exampleZh": "她是一名艺术家。"
+        },
+        {
+          "en": "patient",
+          "zh": "病人",
+          "example": "A doctor works with patients.",
+          "exampleZh": "医生和病人打交道。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "职业前必须加 a / an",
+          "body": "英语单数可数名词作表语的硬性规则——中文不需要,英语必须加:\n我是警察 → I'm a police officer(不能说 I'm police officer)\n① 辅音音素开头 → a:a teacher, a doctor\n② 元音音素开头 → an:an engineer, an artist(看发音不看拼写)\n③ 复数不加冠词:They are scientists.\n④ 形容词不加冠词:I'm American.",
+          "examples": [
+            {
+              "en": "I'm a police officer.",
+              "zh": "我是一名警察。"
+            },
+            {
+              "en": "He is an engineer.",
+              "zh": "他是一名工程师。"
+            },
+            {
+              "en": "They are scientists.",
+              "zh": "他们是科学家。(复数不加冠词)"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "He is ____ engineer.",
+          "options": [
+            "a",
+            "an",
+            "不填"
+          ],
+          "answer": "an",
+          "explain": "engineer 元音音素开头,用 an。"
+        },
+        {
+          "type": "choice",
+          "q": "They are ____ scientists.",
+          "options": [
+            "a",
+            "an",
+            "不填"
+          ],
+          "answer": "不填",
+          "explain": "复数名词前不加冠词。"
+        },
+        {
+          "type": "fill",
+          "q": "I'm ____ police officer.(a / an)",
+          "answer": "a",
+          "explain": "police 辅音音素开头。"
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "I'm doctor.",
+            "I'm a doctor.",
+            "I'm an doctor."
+          ],
+          "answer": "I'm a doctor.",
+          "explain": "单数职业必须加冠词,doctor 辅音开头用 a。"
+        },
+        {
+          "type": "choice",
+          "q": "I'm ____ American.",
+          "options": [
+            "a",
+            "an",
+            "不填"
+          ],
+          "answer": "不填",
+          "explain": "American 这里是形容词,不加冠词。"
+        },
+        {
+          "type": "choice",
+          "passage": "She is a nurse. She works with patients.",
+          "q": "她的工作是?",
+          "options": [
+            "nurse",
+            "doctor",
+            "teacher"
+          ],
+          "answer": "nurse",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U10A",
+      "date": "2026-07-19",
+      "title": "Unit 10 · 上 工作地点:语序与 inside / outside",
+      "words": [
+        {
+          "en": "work",
+          "zh": "工作(动词)",
+          "example": "I work in a hospital.",
+          "exampleZh": "我在医院工作。"
+        },
+        {
+          "en": "inside",
+          "zh": "在室内(单独使用)",
+          "example": "A scientist works inside.",
+          "exampleZh": "科学家在室内工作。"
+        },
+        {
+          "en": "outside",
+          "zh": "在户外(单独使用)",
+          "example": "A farmer works outside.",
+          "exampleZh": "农民在户外工作。"
+        },
+        {
+          "en": "hospital",
+          "zh": "医院",
+          "example": "I work in a hospital.",
+          "exampleZh": "我在医院工作。"
+        },
+        {
+          "en": "farm",
+          "zh": "农场",
+          "example": "I work on a farm.",
+          "exampleZh": "我在农场工作。"
+        },
+        {
+          "en": "construction site",
+          "zh": "建筑工地",
+          "example": "I work on a construction site.",
+          "exampleZh": "我在工地工作。"
+        },
+        {
+          "en": "garden",
+          "zh": "花园",
+          "example": "A gardener works in the garden.",
+          "exampleZh": "园丁在花园工作。"
+        },
+        {
+          "en": "park",
+          "zh": "公园",
+          "example": "They work in the park.",
+          "exampleZh": "他们在公园工作。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "语序:地点放最后",
+          "body": "中文:先说地点,再说动作 → 农民「在室外」工作\n英文:先说动作,地点放句子最后 → 主语 + 动词 + 地点\nA farmer works outside.",
+          "examples": [
+            {
+              "en": "A farmer works outside.",
+              "zh": "农民在室外工作。"
+            },
+            {
+              "en": "A teacher works inside.",
+              "zh": "老师在室内工作。"
+            }
+          ]
+        },
+        {
+          "title": "inside / outside 单独使用",
+          "body": "inside 和 outside 本身已表示地点,后面不接名词,直接结束句子:\nA scientist works inside.\n对比:in / on 是介词,后面必须接具体地点名词(下一课讲)。",
+          "examples": [
+            {
+              "en": "A doctor works inside.",
+              "zh": "医生在室内工作。"
+            },
+            {
+              "en": "A gardener works outside.",
+              "zh": "园丁在户外工作。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "q": "正确的语序是?",
+          "options": [
+            "A farmer outside works.",
+            "A farmer works outside.",
+            "Outside a farmer works."
+          ],
+          "answer": "A farmer works outside.",
+          "explain": "英语中地点放句子最后。"
+        },
+        {
+          "type": "fill",
+          "q": "A doctor works ____.(室内)",
+          "answer": "inside",
+          "explain": ""
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "A scientist works inside a lab room now ok.",
+            "A scientist works inside.",
+            "A scientist inside works."
+          ],
+          "answer": "A scientist works inside.",
+          "explain": "inside 单独使用,不接名词。"
+        },
+        {
+          "type": "choice",
+          "passage": "A teacher works inside. A builder works outside.",
+          "q": "谁在户外工作?",
+          "options": [
+            "teacher",
+            "builder",
+            "doctor"
+          ],
+          "answer": "builder",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    },
+    {
+      "id": "U10B",
+      "date": "2026-07-19",
+      "title": "Unit 10 · 下 工作地点:in 与 on",
+      "words": [
+        {
+          "en": "in",
+          "zh": "在…里面(封闭/有边界的地方)",
+          "example": "I work in a hospital.",
+          "exampleZh": "我在医院工作。"
+        },
+        {
+          "en": "on",
+          "zh": "在…上(农场、工地等特定场地)",
+          "example": "I work on a farm.",
+          "exampleZh": "我在农场工作。"
+        },
+        {
+          "en": "with",
+          "zh": "和…一起;与…打交道",
+          "example": "A doctor works with patients.",
+          "exampleZh": "医生和病人打交道。"
+        }
+      ],
+      "grammar": [
+        {
+          "title": "大多数工作用 in",
+          "body": "in 表示在一个「封闭」或「有边界」的地方里面:建筑物、城市、国家、花园、公园——感觉像被「包」在里面。大部分工作都用 in。",
+          "examples": [
+            {
+              "en": "I work in a hospital.",
+              "zh": "我在医院工作。"
+            },
+            {
+              "en": "I work in the US.",
+              "zh": "我在美国工作。"
+            },
+            {
+              "en": "A gardener works in the garden.",
+              "zh": "园丁在花园工作。"
+            }
+          ]
+        },
+        {
+          "title": "农场、工地习惯用 on",
+          "body": "farm(农场)和 construction site(工地)是习惯搭配,用 on,不是 in——感觉像「站」在地面上,需要单独记。\n注意:「户外」不等于用 on!花园、公园也在户外,但因为有边界,一样用 in。",
+          "examples": [
+            {
+              "en": "I work on a farm.",
+              "zh": "我在农场工作。"
+            },
+            {
+              "en": "I work on a construction site.",
+              "zh": "我在工地工作。"
+            }
+          ]
+        },
+        {
+          "title": "works with + 人",
+          "body": "表示工作中与什么人打交道。注意:主语是 he/she 或单数职业时,动词要加 s(works)。",
+          "examples": [
+            {
+              "en": "A doctor works with patients.",
+              "zh": "医生和病人打交道。"
+            },
+            {
+              "en": "She works with children.",
+              "zh": "她的工作对象是孩子们。"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "type": "fill",
+          "q": "I work ____ a hospital.",
+          "answer": "in",
+          "explain": "建筑物用 in。"
+        },
+        {
+          "type": "fill",
+          "q": "I work ____ a farm.",
+          "answer": "on",
+          "explain": "farm 是习惯搭配,用 on。"
+        },
+        {
+          "type": "choice",
+          "q": "A gardener works ____ the garden.",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": "in",
+          "explain": "花园虽在户外,但有边界,用 in。"
+        },
+        {
+          "type": "choice",
+          "q": "She ____ with patients.",
+          "options": [
+            "work",
+            "works",
+            "working"
+          ],
+          "answer": "works",
+          "explain": "第三人称单数,动词加 s。"
+        },
+        {
+          "type": "choice",
+          "q": "哪句正确?",
+          "options": [
+            "I work in a construction site.",
+            "I work on a construction site."
+          ],
+          "answer": "I work on a construction site.",
+          "explain": "工地是 on 的习惯搭配。"
+        },
+        {
+          "type": "fill",
+          "passage": "I am a farmer. I work on a farm.",
+          "q": "他在哪里工作? He works on a ____.",
+          "answer": "farm",
+          "explain": ""
+        }
+      ],
+      "pdf": ""
+    }
+  ]
+}
+</script>
+
+<script src="app.js"></script>
+<script>
+window.__PRISTINE__ = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+init();
+</script>
+</body>
+</html>
